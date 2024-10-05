@@ -1,0 +1,18 @@
+from tkinter import *
+from tkinter import ttk
+from picamzero import Camera
+
+def capture_photo():
+	cam = Camera()
+	cam.start_preview()
+	cam.take_photo("~Desktop/new_image.jpg")
+	cam.stop_preview()
+
+
+root = Tk()
+frm = ttk.Frame(root, padding=10)
+frm.grid()
+ttk.Label(frm, text="Say AshAck!").grid(column=0, row=0)
+ttk.Button(frm, text="Take Photo", command=capture_photo).grid(column=1, row=0)
+#ttk.Button(frm, text="Quit", command=root.destroy).grid(column=1, row=0)
+root.mainloop()
