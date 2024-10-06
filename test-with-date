@@ -1,0 +1,23 @@
+from tkinter import *
+from tkinter import ttk
+from picamzero import Camera
+from datetime import datetime
+import time
+
+def capture_photo():
+	data = time.strftime("%Y-%b-%d_(%H%M%S)")
+	cam = Camera()
+	cam.start_preview()
+	cam.take_photo("~Desktop/'%s.jpg'%data")
+	cam.stop_preview()
+
+
+root = Tk()
+root.title("AshAck Photo Cube")
+root.geometry("800x480") # Fullscreen for a 5-inch screen
+frm = ttk.Frame(root, padding=10)
+frm.grid()
+ttk.Label(frm, text="AisAck").grid(column=0, row=0)
+ttk.Button(frm, text="Take Photo!", command=capture_photo).grid(column=1, row=0)
+#ttk.Button(frm, text="Quit", command=root.destroy).grid(column=1, row=0)
+root.mainloop()
