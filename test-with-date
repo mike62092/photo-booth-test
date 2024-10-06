@@ -1,14 +1,17 @@
 from tkinter import *
 from tkinter import ttk
 from picamzero import Camera
-from datetime import datetime
 import time
+import datetime as dt
 
 def capture_photo():
-	cam = Camera()
-	cam.start_preview()
-	cam.take_photo("~Desktop/'photo.jpg'")
-	cam.stop_preview()
+    i = dt.datetime.now()
+    now = i.strftime("%Y%m%d-%H%M%S")
+    filepath = "name_of_local_directory" + now + ".jpg"
+    cam = Camera()
+    cam.start_preview()
+    cam.take_photo(filepath)
+    cam.stop_preview()
 
 
 root = Tk()
