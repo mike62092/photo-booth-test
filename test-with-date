@@ -5,10 +5,9 @@ from datetime import datetime
 import time
 
 def capture_photo():
-	data = time.strftime("%Y-%b-%d_(%H%M%S)")
 	cam = Camera()
 	cam.start_preview()
-	cam.take_photo("~Desktop/'%s.jpg'%data")
+	cam.take_photo("~Desktop/'photo.jpg'")
 	cam.stop_preview()
 
 
